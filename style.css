@@ -662,6 +662,14 @@ a,
   font-size: 0.86rem;
 }
 
+.menu-card-actions .view-details {
+  text-align: center;
+}
+
+.menu-card-actions .add-to-cart {
+  text-align: center;
+}
+
 .menu-category {
   display: inline-block;
   align-self: flex-start;
@@ -926,10 +934,15 @@ textarea {
 
 .reservation-layout {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 2rem;
-  align-items: start;
+  justify-items: center;
   margin-top: 3.5rem;
+}
+
+.reservation-layout > .section-header,
+.reservation-form {
+  width: min(760px, 100%);
 }
 
 .reservation-form {
