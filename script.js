@@ -70,7 +70,11 @@ menuSearchInput?.addEventListener('input', (event) => { searchTerm = event.targe
 
 // TEAM MEMBER UI
 const teamGrid = document.getElementById('team-grid');
-if (teamGrid) teamGrid.innerHTML = teamMembers.map((member) => `<article class="team-card"><span class="team-mark">C&amp;B</span><h3>${member.name}</h3><p class="team-role">${member.role}</p><p>${member.description}</p></article>`).join('');
+if (teamGrid) {
+  teamGrid.innerHTML = teamMembers.map((member) => `<article class="team-card"><span class="team-mark">C&amp;B</span><h3>${member.name}</h3><p class="team-role">${member.role}</p><p>${member.description}</p></article>`).join('');
+  teamGrid.style.display = 'flex'; teamGrid.style.flexWrap = 'nowrap'; teamGrid.style.overflowX = 'auto'; teamGrid.style.gap = '1rem';
+  teamGrid.querySelectorAll('.team-card').forEach((card) => { card.style.flex = '0 0 220px'; card.style.width = '220px'; card.style.minWidth = '220px'; card.style.height = '280px'; card.style.minHeight = '280px'; });
+}
 
 // CART FUNCTIONS
 let cart = [];
