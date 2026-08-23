@@ -48,6 +48,7 @@
           <a href="#menu" class="nav-link" data-page="menu">Menu</a>
           <a href="#gallery" class="nav-link" data-page="gallery">Gallery</a>
           <a href="#contact" class="nav-link" data-page="contact">Contact</a>
+          <button class="cart-nav-btn" id="open-cart" type="button" aria-label="Open shopping cart">Cart (<span id="cart-count">0</span>)</button>
         </div>
       </nav>
     </header>
@@ -292,6 +293,14 @@
               “Cozy &amp; Beyond honors pre-colonial Filipino culture by serving unique food and drinks that blend our rich history with modern flavors, all made from local ingredients. Step into our café and experience heritage through curated antiques and design elements. Our goal is to provide exceptional service and a memorable cultural experience where guests of all ages can relax and feel connected to our roots.”
             </p>
           </article>
+
+          <div class="team-about-block">
+            <div class="section-header left-align">
+              <p class="eyebrow accent">The people behind the cafe</p>
+              <h3>Our Team</h3>
+            </div>
+            <div class="team-grid" id="team-grid"></div>
+          </div>
         </div>
       </section>
 
@@ -308,10 +317,10 @@
         <div class="container menu-toolbar">
           <div class="filter-group" aria-label="Menu filters">
             <button class="filter-btn active" type="button" data-category="All">All</button>
-            <button class="filter-btn" type="button" data-category="Rice Meal">Rice Meal</button>
-            <button class="filter-btn" type="button" data-category="Pasta">Pasta</button>
+            <button class="filter-btn" type="button" data-category="Coffee">Coffee</button>
+            <button class="filter-btn" type="button" data-category="Food">Food</button>
+            <button class="filter-btn" type="button" data-category="Dessert">Dessert</button>
             <button class="filter-btn" type="button" data-category="Drinks">Drinks</button>
-            <button class="filter-btn" type="button" data-category="Pastries">Pastries</button>
           </div>
           <label class="search-wrap" for="menu-search">
             <span class="sr-only">Search menu</span>
@@ -617,7 +626,7 @@
             </div>
             <div class="contact-card">
               <h3>Address</h3>
-              <p>Burgos Street in the barangay of Talisay, Sorsogon City</p>
+              <p><a class="address-link" href="https://www.google.com/maps/search/?api=1&amp;query=Burgos%20Street%20Talisay%20Sorsogon%20City" target="_blank" rel="noopener noreferrer">Burgos Street in the barangay of Talisay, Sorsogon City</a></p>
             </div>
             <div class="contact-card">
               <h3>Business Hours</h3>
@@ -663,6 +672,25 @@
       </section>
     </main>
 
+    <!-- CART AND CHECKOUT -->
+    <div class="cart-overlay" id="cart-overlay" aria-hidden="true">
+      <aside class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cart-heading">
+        <div class="cart-panel-header"><div><p class="eyebrow accent">Your selections</p><h2 id="cart-heading">Your Cart</h2></div><button class="icon-btn" id="close-cart" type="button" aria-label="Close cart">×</button></div>
+        <div id="cart-items" class="cart-items" aria-live="polite"></div>
+        <div class="cart-footer"><div class="cart-total"><span>Total</span><strong id="cart-total">₱0</strong></div><button class="primary-btn" id="checkout-button" type="button">Checkout</button><button class="secondary-btn" id="clear-cart" type="button">Clear Cart</button></div>
+        <form id="checkout-form" class="checkout-form" novalidate hidden>
+          <h3>Order Details</h3>
+          <div class="field-group"><label for="order-name">Full Name</label><input id="order-name" type="text" required></div>
+          <div class="field-group"><label for="order-address">Delivery Address</label><textarea id="order-address" rows="3" placeholder="Enter the address where your order will be delivered" required></textarea></div>
+          <div class="field-group"><label for="order-phone">Phone Number</label><input id="order-phone" type="tel" required></div>
+          <div class="field-group"><label for="order-notes">Special Instructions <span>(optional)</span></label><textarea id="order-notes" rows="3"></textarea></div>
+          <div id="order-summary" class="order-summary"></div>
+          <button class="primary-btn" type="submit">Place Order</button><p id="checkout-message" class="form-message" aria-live="polite"></p>
+        </form>
+        <div id="order-confirmation" class="order-confirmation" hidden></div>
+      </aside>
+    </div>
+
     <!-- FOOTER -->
     <footer class="site-footer">
       <div class="container footer-grid">
@@ -689,7 +717,7 @@
           <h4>Contact</h4>
           <p>09672169267</p>
           <a href="mailto:cozyandbeyond67@gmail.com">cozyandbeyond67@gmail.com</a>
-          <p>Burgos Street in the barangay of Talisay, Sorsogon City</p>
+          <p><a class="address-link" href="https://www.google.com/maps/search/?api=1&amp;query=Burgos%20Street%20Talisay%20Sorsogon%20City" target="_blank" rel="noopener noreferrer">Burgos Street in the barangay of Talisay, Sorsogon City</a></p>
           <div class="footer-social">
             <a href="#">Facebook</a>
             <a href="#">Instagram</a>
