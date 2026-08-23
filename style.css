@@ -950,18 +950,85 @@ textarea {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
-  padding: 2rem 0 5rem;
+  padding: 1.75rem 0 3rem;
 }
 
 .reviews-layout {
   display: grid;
-  grid-template-columns: minmax(250px, 0.7fr) minmax(0, 1.3fr);
-  gap: 2rem;
+  grid-template-columns: minmax(0, 1.4fr) minmax(350px, 0.8fr);
+  gap: clamp(2rem, 5vw, 5rem);
   align-items: start;
+  padding-bottom: 5rem;
+}
+
+.reviews-content {
+  min-width: 0;
+}
+
+.review-intro {
+  max-width: 680px;
+  margin: 0;
+  font-size: 1.08rem;
 }
 
 .review-form {
   padding: 1.4rem;
+  min-width: 0;
+}
+
+.review-form-heading {
+  margin-bottom: 1.4rem;
+}
+
+.review-form-heading h3 {
+  font-size: 2.4rem;
+}
+
+.rating-field {
+  margin: 0 0 1rem;
+  padding: 0;
+  border: 0;
+}
+
+.rating-field legend {
+  margin-bottom: 0.45rem;
+  font-weight: 600;
+}
+
+.star-rating {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 0.15rem;
+}
+
+.star-rating input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.star-rating label {
+  width: 2.15rem;
+  color: var(--gold);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.3rem;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input:checked ~ label {
+  color: var(--terracotta);
+}
+
+.star-rating label:hover {
+  transform: translateY(-2px);
 }
 
 .reviews-layout .reviews-grid {
@@ -975,6 +1042,26 @@ textarea {
   border: 1px solid rgba(62, 36, 23, 0.08);
   border-radius: var(--radius);
   box-shadow: var(--soft-shadow);
+}
+
+.empty-reviews {
+  min-height: 250px;
+  padding: 2rem;
+  border: 1px dashed rgba(62, 36, 23, 0.2);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.36);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.empty-reviews h3 {
+  margin-bottom: 0.45rem;
+  font-size: 2.2rem;
+}
+
+.empty-reviews p {
+  margin: 0;
 }
 
 .review-stars {
@@ -993,6 +1080,13 @@ textarea {
 .review-author {
   color: var(--terracotta);
   font-weight: 700;
+}
+
+.review-date {
+  display: block;
+  margin-top: -0.7rem;
+  color: rgba(62, 36, 23, 0.58);
+  font-size: 0.82rem;
 }
 
 /* FOOTER */
