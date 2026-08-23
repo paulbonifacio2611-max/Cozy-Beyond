@@ -21,11 +21,11 @@ const menuItems = [
 
 // TEAM MEMBER DATA
 const teamMembers = [
-  { name: "Paul Bonifacio", role: "Web Developer", description: "A member of the Cozy & Beyond team." },
-  { name: "Angelo Dingalan", role: "UI/UX Designer", description: "A member of the Cozy & Beyond team." },
-  { name: "Chloie Tante", role: "Content & Marketing Manager", description: "A member of the Cozy & Beyond team." },
-  { name: "Jennylie Llaneta", role: "Product & Menu Manager", description: "A member of the Cozy & Beyond team." },
-  { name: "Katrina Doma", role: "Quality Assurance & Documentation", description: "A member of the Cozy & Beyond team." }
+  { name: "Paul Bonifacio", initials: "PB", role: "Web Developer", description: "Builds and maintains the digital experience behind Cozy & Beyond." },
+  { name: "Angelo Dingalan", initials: "AD", role: "UI/UX Designer", description: "Designs intuitive interfaces that make the café experience simple and enjoyable." },
+  { name: "Chloe Tante", initials: "CT", role: "Content & Marketing Manager", description: "Shapes the brand's voice, content, and marketing presence." },
+  { name: "Jennylie Llaneta", initials: "JL", role: "Product & Menu Manager", description: "Curates the menu and ensures every product fits the Cozy & Beyond experience." },
+  { name: "Katrina Doma", initials: "KD", role: "Quality Assurance & Documentation", description: "Ensures quality, consistency, and proper documentation across the project." }
 ];
 
 // PAGE NAVIGATION
@@ -71,9 +71,7 @@ menuSearchInput?.addEventListener('input', (event) => { searchTerm = event.targe
 // TEAM MEMBER UI
 const teamGrid = document.getElementById('team-grid');
 if (teamGrid) {
-  teamGrid.innerHTML = teamMembers.map((member) => `<article class="team-card"><span class="team-mark">C&amp;B</span><h3>${member.name}</h3><p class="team-role">${member.role}</p><p>${member.description}</p></article>`).join('');
-  teamGrid.style.display = 'flex'; teamGrid.style.flexWrap = 'nowrap'; teamGrid.style.overflowX = 'auto'; teamGrid.style.gap = '1rem';
-  teamGrid.querySelectorAll('.team-card').forEach((card) => { card.style.flex = '0 0 220px'; card.style.width = '220px'; card.style.minWidth = '220px'; card.style.height = '280px'; card.style.minHeight = '280px'; });
+  teamGrid.innerHTML = teamMembers.map((member) => `<article class="team-card"><span class="team-mark" aria-hidden="true">${member.initials}</span><h3>${member.name}</h3><p class="team-role">${member.role}</p><p>${member.description}</p></article>`).join('');
 }
 
 // CART FUNCTIONS
